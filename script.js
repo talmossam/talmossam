@@ -269,19 +269,44 @@ function onYTStateChange(event) {
 }
 
 function showSlides() {
-  var frame = document.getElementById('heroYT');
-  if (frame) frame.classList.add('fade-out');
+  var overlay = document.getElementById('heroTransitionOverlay');
+  var frame   = document.getElementById('heroYT');
 
-  slideTimer = setTimeout(function () {
-    showVideo();
-  }, SLIDE_CYCLE);
+  // 1단계: 화면 어둡게
+  if (overlay) overlay.classList.add('active');
+
+  setTimeout(function () {
+    // 2단계: 어두운 상태에서 영상 숨김
+    if (frame) frame.classList.add('fade-out');
+
+    setTimeout(function () {
+      // 3단계: 다시 밝아지며 슬라이드 노출
+      if (overlay) overlay.classList.remove('active');
+
+      // 슬라이드 24초 후 영상으로 복귀
+      slideTimer = setTimeout(showVideo, SLIDE_CYCLE);
+    }, 100);
+  }, 750);
 }
 
 function showVideo() {
-  var frame = document.getElementById('heroYT');
-  if (frame) frame.classList.remove('fade-out');
-  if (ytPlayer && ytPlayer.seekTo) {
-    ytPlayer.seekTo(0);
-    ytPlayer.playVideo();
-  }
+  var overlay = document.getElementById('heroTransitionOverlay');
+  var frame   = document.getElementById('heroYT');
+
+  // 1단계: 화면 어둡게
+  if (overlay) overlay.classList.add('active');
+
+  setTimeout(function () {
+    // 2단계: 어두운 상태에서 영상 표시 후 재생
+    if (frame) frame.classList.remove('fade-out');
+    if (ytPlayer && ytPlayer.seekTo) {
+      ytPlayer.seekTo(0);
+      ytPlayer.playVideo();
+    }
+
+    setTimeout(function () {
+      // 3단계: 다시 밝아지며 영상 노출
+      if (overlay) overlay.classList.remove('active');
+    }, 100);
+  }, 750);
 }
