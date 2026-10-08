@@ -157,7 +157,7 @@ const langLabel    = document.getElementById('langLabel');
 const langInactive = langToggle ? langToggle.querySelector('.lang-inactive') : null;
 const heroTitle    = document.getElementById('heroTitle');
 
-let isKorean = true;  // 기본값: 한국어
+let isKorean = false;  // 기본값: 영문
 
 function applyLanguage(ko) {
   const attr = ko ? 'data-ko' : 'data-en';
@@ -196,6 +196,9 @@ if (langToggle) {
     applyLanguage(isKorean);
   });
 }
+
+// 페이지 로드 시 기본 언어 적용
+applyLanguage(isKorean);
 
 // ===== 부드러운 스크롤 =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
