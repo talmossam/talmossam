@@ -159,8 +159,18 @@ const heroTitle    = document.getElementById('heroTitle');
 
 let isKorean = false;  // 기본값: 영문
 
+// <br>만 허용하고 나머지 태그 제거 (XSS 방지)
+function safeBrHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str.replace(/<br\s*\/?>/gi, '\x00BR\x00');
+  return div.innerHTML.replace(/\x00BR\x00/g, '<br>');
+}
+
 function applyLanguage(ko) {
   const attr = ko ? 'data-ko' : 'data-en';
+
+  // html lang 속성 동기화
+  document.documentElement.lang = ko ? 'ko' : 'en';
 
   // 1. 로고
   const logoVal = ko ? '탈모썜' : 'TALMOSSAM';
@@ -171,20 +181,20 @@ function applyLanguage(ko) {
   if (langLabel)    langLabel.textContent    = ko ? 'KO' : 'EN';
   if (langInactive) langInactive.textContent = ko ? 'EN' : 'KO';
 
-  // 3. 히어로 타이틀 (HTML 구조 유지)
+  // 3. 히어로 타이틀
   if (heroTitle) {
     heroTitle.innerHTML = ko
       ? '두피문신의<br><span class="accent">새로운 기준</span>'
       : 'The New Standard<br><span class="accent">in SMP</span>';
   }
 
-  // 4. data-ko / data-en 속성을 가진 모든 요소 자동 적용
+  // 4. data-ko / data-en 속성 요소 적용 (<br>만 허용, 나머지 태그 제거)
   document.querySelectorAll('[data-ko][data-en]').forEach(el => {
     const val = el.getAttribute(attr);
-    // innerHTML을 허용하는 요소 (br 태그 포함 가능)
-    if (val && val.includes('<')) {
-      el.innerHTML = val;
-    } else if (val) {
+    if (!val) return;
+    if (val.includes('<br') || val.includes('<BR')) {
+      el.innerHTML = safeBrHtml(val);
+    } else {
       el.textContent = val;
     }
   });

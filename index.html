@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,19 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
   <!-- AOS Scroll Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+        rel="stylesheet"
+        integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9"
+        crossorigin="anonymous">
 
   <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+          integrity="sha384-VDbnsk/qjpIVHPQMkJiROI+vW/7cw0k8TFYVLUabm7EWoLEDwcXh09XQ6gQ86Y0B"
+          crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -375,7 +381,7 @@
             <div>
               <h4>카카오톡 상담</h4>
               <p>카카오톡 ID 입력 예정</p>
-              <a href="#" id="kakaoLink" class="kakao-btn" target="_blank">카카오톡 상담하기</a>
+              <a href="#" id="kakaoLink" class="kakao-btn" target="_blank" rel="noopener noreferrer">카카오톡 상담하기</a>
             </div>
           </div>
           <div class="contact-item">
@@ -499,7 +505,9 @@
   </div>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"
+          integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ"
+          crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 </html>

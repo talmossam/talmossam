@@ -351,26 +351,21 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   will-change: opacity, transform;
 }
 
-/* SMP 시술 기구 / 두피문신 관련 이미지 4장 */
-/* ↓ 실제 SMP 사진으로 교체 시 아래 url() 값만 바꾸면 됨 */
+/* SMP 시술 관련 이미지 4장 (Pexels scalp micropigmentation 검색 결과) */
 .hero-slide.s1 {
-  /* SMP 시술 장면 - 아티스트가 두피에 미세색소침착 시술 */
-  background-image: url('https://images.pexels.com/photos/23532307/pexels-photo-23532307.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
+  background-image: url('https://images.pexels.com/photos/29648625/pexels-photo-29648625.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 0s;
 }
 .hero-slide.s2 {
-  /* 정장 착용, 어두운 배경 - SMP 시술 후 자신감 넘치는 남성 */
-  background-image: url('https://images.pexels.com/photos/12791665/pexels-photo-12791665.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
+  background-image: url('https://images.pexels.com/photos/29613314/pexels-photo-29613314.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 6s;
 }
 .hero-slide.s3 {
-  /* 다크 스튜디오, 수염 남성 측면 - 프리미엄 분위기 */
-  background-image: url('https://images.pexels.com/photos/7602321/pexels-photo-7602321.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
+  background-image: url('https://images.pexels.com/photos/17553840/pexels-photo-17553840.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 12s;
 }
 .hero-slide.s4 {
-  /* 드라마틱 스튜디오 인물 - 강렬하고 자신감 있는 이미지 */
-  background-image: url('https://images.pexels.com/photos/10600789/pexels-photo-10600789.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
+  background-image: url('https://images.pexels.com/photos/29648642/pexels-photo-29648642.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 18s;
 }
 
