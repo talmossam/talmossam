@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="탈모썜 | 두피문신(SMP) 전문 선아실장. 자연스러운 두피문신으로 새로운 자신감을 찾으세요.">
+  <title>탈모썜 | SMP 두피문신 전문</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- AOS Scroll Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo" id="navLogo">
+        <span class="logo-en" id="logoText">탈모썜</span>
+        <span class="logo-sub">SMP</span>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="메뉴">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about"     class="nav-link" data-ko="원장소개"   data-en="ABOUT">원장소개</a></li>
+        <li><a href="#services"  class="nav-link" data-ko="시술안내"   data-en="SERVICES">시술안내</a></li>
+        <li><a href="#portfolio" class="nav-link" data-ko="포트폴리오" data-en="PORTFOLIO">포트폴리오</a></li>
+        <li><a href="#pricing"   class="nav-link" data-ko="가격안내"   data-en="PRICING">가격안내</a></li>
+        <li><a href="#booking"   class="nav-link nav-cta" data-ko="예약하기" data-en="BOOK NOW">예약하기</a></li>
+        <li>
+          <button class="lang-toggle" id="langToggle" aria-label="언어 변경">
+            <span class="lang-active" id="langLabel">KO</span>
+            <span class="lang-dot"></span>
+            <span class="lang-inactive">EN</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-video-wrap">
+      <!-- 실제 영상 준비 시: <video autoplay muted loop playsinline src="video/smp_hero.mp4"></video> -->
+      <!-- 유튜브 영상: VIDEO_ID를 실제 유튜브 영상 ID로 교체 후 주석 해제 -->
+      <!--
+      <iframe class="hero-yt" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&showinfo=0&rel=0"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      -->
+      <!-- SMP 기구 슬라이드쇼 (Ken Burns 효과) -->
+      <div class="hero-slide s1"></div>
+      <div class="hero-slide s2"></div>
+      <div class="hero-slide s3"></div>
+      <div class="hero-slide s4"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label" data-aos="fade-up" data-aos-delay="100">SMP · SCALP MICROPIGMENTATION</p>
+      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" id="heroTitle">
+        두피문신의<br><span class="accent">새로운 기준</span>
+      </h1>
+      <p class="hero-desc" data-aos="fade-up" data-aos-delay="350" id="heroDesc"
+         data-ko="탈모썜 선아실장과 함께<br>자연스러운 두피문신으로 새 출발하세요"
+         data-en="Begin a new chapter with TALMOSSAM<br>Specialist Suna is ready for you">
+        탈모썜 선아실장과 함께<br>자연스러운 두피문신으로 새 출발하세요
+      </p>
+      <div class="hero-buttons" data-aos="fade-up" data-aos-delay="450">
+        <a href="#booking"   class="btn btn-primary" data-ko="무료 상담 예약" data-en="FREE CONSULTATION">무료 상담 예약</a>
+        <a href="#portfolio" class="btn btn-outline"  data-ko="시술 결과 보기" data-en="VIEW RESULTS">시술 결과 보기</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+      <p>SCROLL</p>
+    </div>
+  </section>
+
+  <!-- ===== INTRO NUMBERS ===== -->
+  <section id="intro-numbers">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-item" data-aos="fade-up" data-aos-delay="0">
+          <h3 class="number">500<span>+</span></h3>
+          <p>시술 고객</p>
+        </div>
+        <div class="number-item" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="number">98<span>%</span></h3>
+          <p>고객 만족도</p>
+        </div>
+        <div class="number-item" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="number">5<span>년+</span></h3>
+          <p>시술 경력</p>
+        </div>
+        <div class="number-item" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="number">0<span>건</span></h3>
+          <p>부작용 사례</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap" data-aos="fade-right">
+          <!-- 선아실장 사진 자리 -->
+          <div class="img-placeholder about-img">
+            <span>선아실장<br>프로필 사진</span>
+          </div>
+          <div class="about-badge">
+            <span>SMP</span>
+            <span>SPECIALIST</span>
+          </div>
+        </div>
+        <div class="about-text" data-aos="fade-left" data-aos-delay="150">
+          <p class="section-label">ABOUT</p>
+          <h2 class="section-title" data-ko="선아실장을<br>소개합니다" data-en="Meet Our<br>Specialist">선아실장을<br>소개합니다</h2>
+          <p class="about-desc">
+            두피문신 전문 시술자 선아실장은 수백 명의 고객과 함께하며
+            탈모로 인한 고민을 자신감으로 바꿔왔습니다.<br><br>
+            세밀한 기술력과 섬세한 상담으로 고객 한 분 한 분의
+            두피 상태와 원하는 스타일에 맞는 최적의 결과를 만들어 드립니다.
+          </p>
+          <ul class="about-career">
+            <li>
+              <span class="career-dot"></span>
+              SMP 두피문신 전문 자격 보유
+            </li>
+            <li>
+              <span class="career-dot"></span>
+              5년 이상 시술 경력
+            </li>
+            <li>
+              <span class="career-dot"></span>
+              개인 맞춤 두피 분석 상담 제공
+            </li>
+            <li>
+              <span class="career-dot"></span>
+              부작용 Zero 안전 시술
+            </li>
+          </ul>
+          <a href="#booking" class="btn btn-primary mt-2">상담 예약하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-label">SERVICES</p>
+        <h2 class="section-title" data-ko="시술 안내" data-en="Our Services">시술 안내</h2>
+        <p class="section-desc" data-ko="고객의 두피 상태와 목적에 따라 최적의 시술을 제안합니다" data-en="We recommend the best treatment based on your scalp condition and goals">고객의 두피 상태와 목적에 따라 최적의 시술을 제안합니다</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-img-wrap">
+            <div class="img-placeholder service-img"><span>전체 두피<br>시술 사진</span></div>
+          </div>
+          <div class="service-info">
+            <h3>전체 두피 SMP</h3>
+            <p>정수리부터 측두부까지 전체적으로 자연스러운 모낭 점을 표현합니다. 탈모 면적이 넓을수록 효과가 극대화됩니다.</p>
+            <a href="#booking" class="service-link">상담 예약 →</a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-img-wrap">
+            <div class="img-placeholder service-img"><span>헤어라인<br>시술 사진</span></div>
+          </div>
+          <div class="service-info">
+            <h3>헤어라인 교정</h3>
+            <p>후퇴한 헤어라인을 자연스럽게 되살립니다. 이마가 넓어 보이는 고민을 해결하고 얼굴 비율을 개선합니다.</p>
+            <a href="#booking" class="service-link">상담 예약 →</a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-img-wrap">
+            <div class="img-placeholder service-img"><span>흉터 커버<br>시술 사진</span></div>
+          </div>
+          <div class="service-info">
+            <h3>흉터 커버</h3>
+            <p>두피의 흉터, 수술 자국 등을 SMP 기법으로 자연스럽게 커버합니다. 정밀한 색상 매칭으로 티 없이 완성합니다.</p>
+            <a href="#booking" class="service-link">상담 예약 →</a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-img-wrap">
+            <div class="img-placeholder service-img"><span>밀도 보완<br>시술 사진</span></div>
+          </div>
+          <div class="service-info">
+            <h3>밀도 보완</h3>
+            <p>모발이 있지만 숱이 적어 두피가 비쳐 보이는 경우, 밀도를 높여 풍성해 보이도록 연출합니다.</p>
+            <a href="#booking" class="service-link">상담 예약 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-label">PORTFOLIO</p>
+        <h2 class="section-title" data-ko="시술 결과" data-en="Our Work">시술 결과</h2>
+        <p class="section-desc" data-ko="실제 고객의 전·후 사진입니다" data-en="Real before & after results from our clients">실제 고객의 전·후 사진입니다</p>
+      </div>
+
+      <!-- Before/After 슬라이더 -->
+      <div class="ba-slider-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="ba-slider" id="baSlider">
+          <div class="ba-before">
+            <div class="img-placeholder ba-img"><span>Before<br>시술 전 사진</span></div>
+            <span class="ba-label">BEFORE</span>
+          </div>
+          <div class="ba-after">
+            <div class="img-placeholder ba-img after"><span>After<br>시술 후 사진</span></div>
+            <span class="ba-label">AFTER</span>
+          </div>
+          <div class="ba-handle" id="baHandle">
+            <div class="ba-handle-line"></div>
+            <div class="ba-handle-circle">
+              <span>◀</span><span>▶</span>
+            </div>
+          </div>
+        </div>
+        <p class="ba-guide">← 슬라이더를 움직여 전·후를 비교하세요 →</p>
+      </div>
+
+      <!-- 갤러리 그리드 -->
+      <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="150">
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 1</span></div>
+          <div class="portfolio-overlay">
+            <span>전체 두피 SMP</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 2</span></div>
+          <div class="portfolio-overlay">
+            <span>헤어라인 교정</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 3</span></div>
+          <div class="portfolio-overlay">
+            <span>흉터 커버</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 4</span></div>
+          <div class="portfolio-overlay">
+            <span>밀도 보완</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 5</span></div>
+          <div class="portfolio-overlay">
+            <span>전체 두피 SMP</span>
+          </div>
+        </div>
+        <div class="portfolio-item">
+          <div class="img-placeholder port-img"><span>포트폴리오<br>사진 6</span></div>
+          <div class="portfolio-overlay">
+            <span>헤어라인 교정</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 인스타그램 링크 -->
+      <div class="insta-link-wrap" data-aos="fade-up">
+        <a href="#" id="instaLink" class="insta-link" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          인스타그램에서 더 많은 시술 사례 보기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-label">PRICING</p>
+        <h2 class="section-title" data-ko="가격 안내" data-en="Pricing Guide">가격 안내</h2>
+        <p class="section-desc" data-ko="모든 가격은 상담 후 두피 상태에 따라 조정될 수 있습니다" data-en="All prices may vary based on scalp condition after a free consultation">모든 가격은 상담 후 두피 상태에 따라 조정될 수 있습니다</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="pricing-top">
+            <h3>헤어라인 교정</h3>
+            <p>후퇴한 헤어라인 복구</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-amount">상담 후 안내</span>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ 1회 시술 포함</li>
+            <li>✓ 사후 관리 안내</li>
+            <li>✓ 무료 터치업 1회</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline w-full">상담 예약</a>
+        </div>
+        <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-badge">인기</div>
+          <div class="pricing-top">
+            <h3>전체 두피 SMP</h3>
+            <p>전체 두피 모낭 표현</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-amount">상담 후 안내</span>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ 2회 시술 포함</li>
+            <li>✓ 맞춤 색상 조합</li>
+            <li>✓ 무료 터치업 1회</li>
+            <li>✓ 1년 사후 관리</li>
+          </ul>
+          <a href="#booking" class="btn btn-primary w-full">상담 예약</a>
+        </div>
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-top">
+            <h3>흉터 · 밀도 보완</h3>
+            <p>부분 커버 & 밀도 향상</p>
+          </div>
+          <div class="pricing-price">
+            <span class="price-amount">상담 후 안내</span>
+          </div>
+          <ul class="pricing-features">
+            <li>✓ 부위별 맞춤 시술</li>
+            <li>✓ 자연스러운 색상 매칭</li>
+            <li>✓ 무료 터치업 1회</li>
+          </ul>
+          <a href="#booking" class="btn btn-outline w-full">상담 예약</a>
+        </div>
+      </div>
+      <p class="pricing-notice" data-aos="fade-up">※ 정확한 가격은 두피 상태 확인 후 무료 상담을 통해 안내드립니다.</p>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING ===== -->
+  <section id="booking">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-label">RESERVATION</p>
+        <h2 class="section-title" data-ko="예약 & 상담 신청" data-en="Book a Consultation">예약 & 상담 신청</h2>
+        <p class="section-desc" data-ko="아래 양식을 작성하시면 빠른 시간 내에 연락드리겠습니다" data-en="Fill in the form below and we'll get back to you shortly">아래 양식을 작성하시면 빠른 시간 내에 연락드리겠습니다</p>
+      </div>
+      <div class="booking-grid">
+        <div class="booking-info" data-aos="fade-right">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>전화 상담</h4>
+              <p id="contactPhone">번호 입력 예정</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <div>
+              <h4>카카오톡 상담</h4>
+              <p>카카오톡 ID 입력 예정</p>
+              <a href="#" id="kakaoLink" class="kakao-btn" target="_blank">카카오톡 상담하기</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>위치</h4>
+              <p id="contactAddress">주소 입력 예정</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4>운영시간</h4>
+              <p>운영시간 입력 예정</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="booking-form" id="bookingForm" data-aos="fade-left" data-aos-delay="100">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">이름 *</label>
+              <input type="text" id="name" name="name" placeholder="홍길동" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">연락처 *</label>
+              <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="service">시술 종류</label>
+            <select id="service" name="service">
+              <option value="">선택해주세요</option>
+              <option value="전체 두피 SMP">전체 두피 SMP</option>
+              <option value="헤어라인 교정">헤어라인 교정</option>
+              <option value="흉터 커버">흉터 커버</option>
+              <option value="밀도 보완">밀도 보완</option>
+              <option value="기타/모름">기타 / 모름 (상담 후 결정)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">희망 날짜</label>
+            <input type="date" id="date" name="date">
+          </div>
+          <div class="form-group">
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" rows="4" placeholder="탈모 상태, 궁금한 점, 원하는 스타일 등 자유롭게 적어주세요."></textarea>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">개인정보 수집 및 이용에 동의합니다 *</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-full" id="submitBtn">
+            <span id="submitText">예약 신청하기</span>
+            <span id="submitLoading" style="display:none">전송 중...</span>
+          </button>
+          <div id="formMessage" class="form-message"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-en" id="footerLogoText">탈모썜</span>
+            <span class="logo-sub">SMP</span>
+          </div>
+          <p class="footer-tagline">두피문신으로 새로운 자신감을</p>
+          <div class="footer-social">
+            <a href="#" id="footerInsta" target="_blank" rel="noopener" aria-label="인스타그램">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>메뉴</h4>
+          <ul>
+            <li><a href="#about">원장 소개</a></li>
+            <li><a href="#services">시술 안내</a></li>
+            <li><a href="#portfolio">포트폴리오</a></li>
+            <li><a href="#pricing">가격 안내</a></li>
+            <li><a href="#booking">예약 신청</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>연락처</h4>
+          <p>📞 번호 입력 예정</p>
+          <p>💬 카카오톡 입력 예정</p>
+          <p>📍 주소 입력 예정</p>
+          <p>🕐 운영시간 입력 예정</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 탈모썜. All rights reserved.</p>
+        <p class="footer-privacy">개인정보처리방침</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING BUTTONS ===== -->
+  <div class="floating-btns">
+    <a href="tel:번호입력예정" class="float-btn phone-btn" id="floatPhone" aria-label="전화 상담">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+    <a href="#" id="floatKakao" class="float-btn kakao-float-btn" target="_blank" rel="noopener" aria-label="카카오톡 상담">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.73 1.63 5.13 4.1 6.6L5.05 21l4.45-2.2c.82.15 1.66.2 2.5.2 5.52 0 10-3.48 10-7.8C22 6.48 17.52 3 12 3z"/>
+      </svg>
+    </a>
+    <a href="#booking" class="float-btn reserve-float-btn" aria-label="예약하기">
+      예약
+    </a>
+  </div>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
