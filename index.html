@@ -50,17 +50,17 @@
   <!-- ===== HERO ===== -->
   <section id="hero">
     <div class="hero-video-wrap">
-      <!-- 실제 영상 준비 시: <video autoplay muted loop playsinline src="video/smp_hero.mp4"></video> -->
-      <!-- 유튜브 영상: VIDEO_ID를 실제 유튜브 영상 ID로 교체 후 주석 해제 -->
-      <!--
-      <iframe class="hero-yt" src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID&controls=0&showinfo=0&rel=0"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      -->
-      <!-- SMP 기구 슬라이드쇼 (Ken Burns 효과) -->
+      <!-- 폴백 슬라이드쇼 (영상 로딩 전 표시) -->
       <div class="hero-slide s1"></div>
       <div class="hero-slide s2"></div>
       <div class="hero-slide s3"></div>
       <div class="hero-slide s4"></div>
+      <!-- SMP 시술 유튜브 배경 영상 (슬라이드 위에 덮어씌움) -->
+      <iframe class="hero-yt" id="heroYT"
+        src="https://www.youtube.com/embed/eiv6groa0V4?autoplay=1&mute=1&loop=1&playlist=eiv6groa0V4&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media; fullscreen"
+        allowfullscreen></iframe>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">

@@ -382,15 +382,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   100% { opacity: 0;   transform: scale(1.08); }
 }
 
-/* YouTube 영상 배경 (준비 시 사용) */
+/* YouTube 영상 배경 */
 .hero-yt {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 177.78vh;
-  min-height: 56.25vw;
-  width: 100vw;
+  z-index: 1;
+  /* 세로형 쇼츠(9:16)를 가로 화면에 꽉 채우기 */
+  width: calc(100vh * 9 / 16);
   height: 100vh;
+  min-width: 100vw;
+  min-height: calc(100vw * 16 / 9);
   pointer-events: none;
 }
 
