@@ -354,23 +354,23 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* SMP 시술 기구 / 두피문신 관련 이미지 4장 */
 /* ↓ 실제 SMP 사진으로 교체 시 아래 url() 값만 바꾸면 됨 */
 .hero-slide.s1 {
-  /* PMU 시술 클로즈업 - SMP와 가장 유사 */
-  background-image: url('https://images.unsplash.com/photo-1611403570720-162d8829689a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  /* SMP 시술 장면 - 아티스트가 두피에 미세색소침착 시술 */
+  background-image: url('https://images.pexels.com/photos/23532307/pexels-photo-23532307.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 0s;
 }
 .hero-slide.s2 {
-  /* 프로페셔널 시술 도구 다크톤 */
-  background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  /* 두피 클로즈업 - SMP 시술 후 결과 */
+  background-image: url('https://images.pexels.com/photos/7479510/pexels-photo-7479510.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 6s;
 }
 .hero-slide.s3 {
-  /* 정밀 시술 클로즈업 */
-  background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  /* 전문 타투이스트 스튜디오 작업 */
+  background-image: url('https://images.pexels.com/photos/19307685/pexels-photo-19307685.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 12s;
 }
 .hero-slide.s4 {
-  /* 시술 현장 분위기 */
-  background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  /* 시술 후 자신감 넘치는 남성 - 다크 배경 */
+  background-image: url('https://images.pexels.com/photos/5808330/pexels-photo-5808330.jpeg?auto=compress&cs=tinysrgb&w=1920&q=80');
   animation-delay: 18s;
 }
 
@@ -552,7 +552,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 /* SMP 관련 시술 이미지 */
 .about-img {
   background:
-    url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+    url('https://images.pexels.com/photos/19257525/pexels-photo-19257525.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
 }
 
 .about-badge {
@@ -646,16 +646,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* 각 시술 관련 이미지 */
 .service-card:nth-child(1) .service-img {
-  background: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/23532307/pexels-photo-23532307.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
 }
 .service-card:nth-child(2) .service-img {
-  background: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/21810006/pexels-photo-21810006.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
 }
 .service-card:nth-child(3) .service-img {
-  background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/5059286/pexels-photo-5059286.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
 }
 .service-card:nth-child(4) .service-img {
-  background: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/7479510/pexels-photo-7479510.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
 }
 
 .service-card:hover .service-img { transform: scale(1.06); }
@@ -734,13 +734,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* SMP 시술 전 이미지 */
 .ba-before .ba-img {
-  background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/20104495/pexels-photo-20104495.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80') center/cover no-repeat;
   filter: grayscale(60%) brightness(0.7);
 }
 
 /* SMP 시술 후 이미지 */
 .ba-after .ba-img {
-  background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/31567765/pexels-photo-31567765.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80') center/cover no-repeat;
 }
 
 .ba-label {
@@ -837,22 +837,22 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* 포트폴리오 이미지 */
 .portfolio-item:nth-child(1) .port-img {
-  background: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/23532307/pexels-photo-23532307.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 .portfolio-item:nth-child(2) .port-img {
-  background: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/7479510/pexels-photo-7479510.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 .portfolio-item:nth-child(3) .port-img {
-  background: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/5808330/pexels-photo-5808330.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 .portfolio-item:nth-child(4) .port-img {
-  background: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/5059286/pexels-photo-5059286.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 .portfolio-item:nth-child(5) .port-img {
-  background: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/19307685/pexels-photo-19307685.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 .portfolio-item:nth-child(6) .port-img {
-  background: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background: url('https://images.pexels.com/photos/20104495/pexels-photo-20104495.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
 }
 
 .portfolio-overlay {
