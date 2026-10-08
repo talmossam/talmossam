@@ -243,3 +243,42 @@ const countObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 numberEls.forEach(el => countObserver.observe(el));
+
+// ===== 유튜브 영상 → 슬라이드 → 영상 반복 시퀀스 =====
+var ytTag = document.createElement('script');
+ytTag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(ytTag);
+
+var ytPlayer;
+var slideTimer = null;
+var SLIDE_CYCLE = 24000; // 슬라이드 1순환 = 24초 (6초 × 4장)
+
+window.onYouTubeIframeAPIReady = function () {
+  ytPlayer = new YT.Player('heroYT', {
+    events: { onStateChange: onYTStateChange }
+  });
+};
+
+function onYTStateChange(event) {
+  if (event.data === YT.PlayerState.ENDED) {
+    showSlides();
+  }
+}
+
+function showSlides() {
+  var frame = document.getElementById('heroYT');
+  if (frame) frame.classList.add('fade-out');
+
+  slideTimer = setTimeout(function () {
+    showVideo();
+  }, SLIDE_CYCLE);
+}
+
+function showVideo() {
+  var frame = document.getElementById('heroYT');
+  if (frame) frame.classList.remove('fade-out');
+  if (ytPlayer && ytPlayer.seekTo) {
+    ytPlayer.seekTo(0);
+    ytPlayer.playVideo();
+  }
+}

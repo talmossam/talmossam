@@ -394,6 +394,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   min-width: 100vw;
   min-height: calc(100vw * 16 / 9);
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+.hero-yt.fade-out {
+  opacity: 0;
 }
 
 .hero-overlay {
