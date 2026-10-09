@@ -17,10 +17,13 @@ AOS.init({
   offset: 80,
 });
 
-// ===== 네비 스크롤 효과 =====
-const navbar = document.getElementById('navbar');
+// ===== 네비 스크롤 효과 + 플로팅 버튼 표시 =====
+const navbar      = document.getElementById('navbar');
+const floatingBtns = document.querySelector('.floating-btns');
+
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
+  if (floatingBtns) floatingBtns.classList.toggle('visible', window.scrollY > 200);
 });
 
 // ===== 모바일 메뉴 =====
@@ -93,6 +96,15 @@ if (bookingForm) {
       reply_to:     document.getElementById('phone').value,
     };
 
+    // honeypot 봇 감지
+    if (document.querySelector('[name="_honey"]') &&
+        document.querySelector('[name="_honey"]').value) {
+      submitBtn.disabled = false;
+      submitText.style.display = 'inline';
+      submitLoading.style.display = 'none';
+      return;
+    }
+
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
       .then(() => {
         formMessage.textContent = '✓ 예약 신청이 완료되었습니다! 빠른 시간 내에 연락드리겠습니다.';
@@ -144,8 +156,9 @@ function safeBrHtml(str) {
 function applyLanguage(ko) {
   const attr = ko ? 'data-ko' : 'data-en';
 
-  // html lang 속성 동기화
+  // html lang 속성 + 탭 제목 동기화
   document.documentElement.lang = ko ? 'ko' : 'en';
+  document.title = ko ? '탈모썜 | SMP 두피문신 전문' : 'TALMOSSAM | Scalp Micropigmentation';
 
   // 1. 로고
   const logoVal = ko ? '탈모썜' : 'TALMOSSAM';
@@ -184,6 +197,10 @@ if (langToggle) {
 
 // 페이지 로드 시 기본 언어 적용
 applyLanguage(isKorean);
+
+// 저작권 연도 자동 갱신
+const yearEl = document.getElementById('copyrightYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ===== 부드러운 스크롤 =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -246,6 +263,11 @@ window.onYouTubeIframeAPIReady = function () {
     events: { onStateChange: onYTStateChange }
   });
 };
+
+// YT 로드 차단 환경 안전망 — 5초 후에도 플레이어 없으면 슬라이드로 전환
+setTimeout(function () {
+  if (!ytPlayer) showSlides();
+}, 5000);
 
 function onYTStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
@@ -343,6 +365,7 @@ function showVideo() {
   }
 
   function startAuto() {
+    clearInterval(autoTimer);  // 중복 타이머 방지
     autoTimer = setInterval(() => slide(current >= maxIdx() ? 0 : current + 1), 4000);
   }
 
@@ -367,5 +390,5 @@ function showVideo() {
     startAuto();
   }, { passive: true });
 
-  window.addEventListener('resize', () => { buildDots(); slide(Math.min(current, maxIdx())); });
+  window.addEventListener('resize', () => { buildDots(); slide(Math.min(current, maxIdx())); stopAuto(); startAuto(); });
 })();
