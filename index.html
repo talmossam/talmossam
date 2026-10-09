@@ -269,25 +269,19 @@
         <p class="section-desc" data-ko="실제 고객의 전·후 사진입니다" data-en="Real before & after results from our clients">실제 고객의 전·후 사진입니다</p>
       </div>
 
-      <!-- Before/After 슬라이더 -->
-      <div class="ba-slider-wrap" data-aos="fade-up" data-aos-delay="100">
-        <div class="ba-slider" id="baSlider">
-          <div class="ba-before">
-            <div class="img-placeholder ba-img"><span>Before<br>시술 전 사진</span></div>
-            <span class="ba-label">BEFORE</span>
+      <!-- Before/After 핀치줌 비교 -->
+      <div class="ba-compare-wrap" data-aos="fade-up" data-aos-delay="100">
+        <div class="ba-sides-grid">
+          <div class="ba-side">
+            <div class="ba-img-box ba-img-before"></div>
+            <span class="ba-side-tag">시술 전</span>
           </div>
-          <div class="ba-after">
-            <div class="img-placeholder ba-img after"><span>After<br>시술 후 사진</span></div>
-            <span class="ba-label">AFTER</span>
-          </div>
-          <div class="ba-handle" id="baHandle">
-            <div class="ba-handle-line"></div>
-            <div class="ba-handle-circle">
-              <span>◀</span><span>▶</span>
-            </div>
+          <div class="ba-side ba-side-after">
+            <div class="ba-img-box ba-img-after"></div>
+            <span class="ba-side-tag">시술 후</span>
           </div>
         </div>
-        <p class="ba-guide">← 슬라이더를 움직여 전·후를 비교하세요 →</p>
+        <p class="ba-zoom-hint">📱 핀치 줌으로 확대해 양쪽을 세밀하게 비교해보세요</p>
       </div>
 
       <!-- 지속력 증명 -->
@@ -346,6 +340,79 @@
           인스타그램에서 더 많은 시술 사례 보기
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS ===== -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <p class="section-label">REVIEWS</p>
+        <h2 class="section-title" data-ko="고객 후기" data-en="Client Reviews">고객 후기</h2>
+        <p class="section-desc" data-ko="실제 시술을 받으신 분들의 생생한 후기입니다" data-en="Real reviews from our valued clients">실제 시술을 받으신 분들의 생생한 후기입니다</p>
+      </div>
+
+      <div class="review-slider-outer" data-aos="fade-up" data-aos-delay="100">
+        <button class="review-nav-btn rev-prev" id="revPrev" aria-label="이전">&#8249;</button>
+        <div class="review-viewport">
+          <div class="review-track" id="reviewTrack">
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">"처음엔 반신반의했는데 시술 당일부터 달라진 게 느껴졌어요. 거울 볼 때마다 자신감이 생기고, 주변에서 머리 좋아졌냐고 자꾸 물어봐요. 이렇게까지 자연스러울 줄 몰랐습니다."</p>
+              <div class="review-divider"></div>
+              <div class="review-info">
+                <span class="review-name">이 ○ 훈 님</span>
+                <span class="review-type">헤어라인 교정</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">"두피 문신이라고 하면 티 날까봐 걱정했는데, 한올한올 표현해주셔서 정말 진짜 머리카락 같아요. 선아실장님이 꼼꼼하게 설명해주셔서 불안함 없이 받을 수 있었습니다."</p>
+              <div class="review-divider"></div>
+              <div class="review-info">
+                <span class="review-name">박 ○ 진 님</span>
+                <span class="review-type">전체 두피 SMP</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">"무통증이라더니 진짜로 아프지 않았어요. 시술 내내 편안했고, 결과도 너무 만족스럽습니다. 오랫동안 고민만 하다가 왜 이제야 왔나 싶을 정도예요."</p>
+              <div class="review-divider"></div>
+              <div class="review-info">
+                <span class="review-name">최 ○ 영 님</span>
+                <span class="review-type">부분 보정</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">"시술 후 2년이 지났는데도 색이 자연스럽게 유지되고 있어요. 주변 지인들한테도 적극 추천했고, 같이 방문한 친구도 만족해서 둘 다 단골이 됐습니다."</p>
+              <div class="review-divider"></div>
+              <div class="review-info">
+                <span class="review-name">김 ○ 수 님</span>
+                <span class="review-type">헤어라인 교정</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p class="review-text">"카운슬링 때 제 두피 상태를 정말 세심하게 봐주시고, 제 얼굴형에 맞는 디자인을 제안해 주셨어요. 결과물이 기대 이상이라 지인분들께 꼭 추천하고 싶습니다."</p>
+              <div class="review-divider"></div>
+              <div class="review-info">
+                <span class="review-name">정 ○ 민 님</span>
+                <span class="review-type">전체 두피 SMP</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <button class="review-nav-btn rev-next" id="revNext" aria-label="다음">&#8250;</button>
+      </div>
+
+      <div class="review-dots" id="reviewDots"></div>
     </div>
   </section>
 

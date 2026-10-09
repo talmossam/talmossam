@@ -717,118 +717,66 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: var(--black);
 }
 
-/* Before/After Slider */
-.ba-slider-wrap {
-  margin-bottom: 64px;
+/* ===== BEFORE / AFTER COMPARE ===== */
+.ba-compare-wrap {
+  margin-bottom: 56px;
 }
 
-.ba-slider {
-  position: relative;
-  width: 100%;
-  height: 480px;
+.ba-sides-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  cursor: col-resize;
-  user-select: none;
+  margin-bottom: 14px;
 }
 
-.ba-before, .ba-after {
+.ba-side { position: relative; }
+
+.ba-img-box {
+  height: 380px;
+  background-size: 200% auto;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease;
+}
+
+.ba-img-box:hover { transform: scale(1.02); }
+
+.ba-img-before {
+  background-image: url('images/before-after-2.jpg');
+  background-position-x: left;
+  filter: brightness(0.82);
+}
+
+.ba-img-after {
+  background-image: url('images/before-after-2.jpg');
+  background-position-x: right;
+}
+
+.ba-side-tag {
   position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.ba-after {
-  width: 50%;
-  border-right: 3px solid var(--accent);
-}
-
-.ba-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 실제 시술 전/후 (복합 이미지를 CSS로 좌/우 분리) */
-.ba-before .ba-img {
-  background: url('images/before-after-2.jpg') left center / 200% auto no-repeat;
-  background-color: var(--dark3);
-}
-
-.ba-after .ba-img {
-  background: url('images/before-after-2.jpg') right center / 200% auto no-repeat;
-  background-color: var(--dark3);
-}
-
-.ba-label {
-  position: absolute;
-  bottom: 20px;
+  bottom: 14px;
+  left: 14px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 3px;
-  padding: 6px 14px;
+  letter-spacing: 2.5px;
+  padding: 5px 14px;
   border-radius: var(--radius);
-}
-
-.ba-before .ba-label {
-  right: 16px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(5,5,5,0.7);
   color: var(--text-muted);
 }
 
-.ba-after .ba-label {
-  left: 16px;
+.ba-side-after .ba-side-tag {
   background: var(--accent);
   color: var(--black);
 }
 
-.ba-handle {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.ba-handle-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--accent);
-}
-
-.ba-handle-circle {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  z-index: 1;
-  box-shadow: 0 4px 20px rgba(201,169,110,0.5);
-}
-
-.ba-handle-circle span {
-  font-size: 0.6rem;
-  color: var(--black);
-  font-weight: 900;
-}
-
-.ba-guide {
+.ba-zoom-hint {
   text-align: center;
   color: var(--text-dim);
-  font-size: 0.8rem;
-  margin-top: 16px;
+  font-size: 0.78rem;
   letter-spacing: 0.5px;
 }
 
@@ -842,7 +790,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 .portfolio-item {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 3/2;
   overflow: hidden;
 }
 
@@ -860,7 +808,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: url('images/hairline-closeup.jpg') center top/cover no-repeat;
 }
 .portfolio-item:nth-child(3) .port-img {
-  background: url('images/before-after-2.jpg') left center/cover no-repeat;
+  background: url('images/before-after-2.jpg') right center/cover no-repeat;
 }
 .portfolio-item:nth-child(4) .port-img {
   background: url('images/collage.jpg') center/cover no-repeat;
@@ -869,7 +817,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: url('images/needle-closeup.jpg') center/cover no-repeat;
 }
 .portfolio-item:nth-child(6) .port-img {
-  background: url('images/longevity.jpg') center/cover no-repeat;
+  background: url('images/longevity.jpg') right center/cover no-repeat;
 }
 
 .portfolio-overlay {
@@ -1334,6 +1282,137 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   letter-spacing: 0.5px;
 }
 
+/* ===== REVIEWS ===== */
+#reviews {
+  padding: 120px 0;
+  background: var(--dark);
+}
+
+.review-slider-outer {
+  position: relative;
+  padding: 0 48px;
+}
+
+.review-viewport {
+  overflow: hidden;
+}
+
+.review-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+}
+
+.review-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  background: var(--dark2);
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: border-color 0.3s ease;
+}
+
+.review-card:hover {
+  border-color: rgba(201,169,110,0.4);
+}
+
+.review-stars {
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.review-text {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.review-divider {
+  height: 1px;
+  background: var(--gray);
+  margin-bottom: 16px;
+}
+
+.review-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.review-type {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  background: rgba(201,169,110,0.1);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.review-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--dark3);
+  border: 1px solid var(--gray2);
+  color: var(--white);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.review-nav-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--black);
+}
+
+.rev-prev { left: 0; }
+.rev-next { right: 0; }
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.review-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray2);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.review-dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
 /* ===== SWIPE HINT ===== */
 .swipe-hint {
   display: none;
@@ -1481,7 +1560,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   }
 
   /* 섹션 패딩 축소 */
-  #about, #services, #why, #portfolio, #pricing, #booking { padding: 56px 0; }
+  #about, #services, #why, #portfolio, #reviews, #pricing, #booking { padding: 56px 0; }
   .section-header { margin-bottom: 32px; }
 
   /* Why 섹션 모바일 */
@@ -1532,9 +1611,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .service-img-wrap { height: 200px; }
 
   /* Portfolio */
-  .ba-slider { height: 240px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .portfolio-item { aspect-ratio: 4/3; }
+
+  /* Reviews */
+  .review-card { flex: 0 0 calc((100% - 24px) / 2); }
+  .review-slider-outer { padding: 0 36px; }
 
   /* Pricing — 가로 스크롤 */
   .pricing-grid {
@@ -1570,7 +1651,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  #about, #services, #why, #portfolio, #pricing, #booking { padding: 44px 0; }
+  #about, #services, #why, #portfolio, #reviews, #pricing, #booking { padding: 44px 0; }
   .section-header { margin-bottom: 24px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { flex: 0 0 85vw; }
@@ -1578,4 +1659,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   .hero-trust { gap: 10px; }
   .hero-trust span { font-size: 0.72rem; }
   .why-grid { grid-template-columns: 1fr; }
+  .ba-sides-grid { grid-template-columns: 1fr; }
+  .ba-img-box { height: 250px; }
+  /* 480px: 1장씩 — 90%는 뷰포트 기준이 아닌 track 기준 */
+  .review-card { flex: 0 0 90%; }
+  .review-slider-outer { padding: 0 20px; }
+  /* 터치 스와이프로 충분 — 버튼 숨김 */
+  .review-nav-btn { display: none; }
 }

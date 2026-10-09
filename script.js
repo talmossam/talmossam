@@ -67,31 +67,6 @@ function updateActiveNav() {
 
 window.addEventListener('scroll', updateActiveNav);
 
-// ===== BEFORE / AFTER 슬라이더 =====
-const baSlider = document.getElementById('baSlider');
-const baHandle = document.getElementById('baHandle');
-const baAfter  = baSlider ? baSlider.querySelector('.ba-after') : null;
-
-if (baSlider && baHandle && baAfter) {
-  let isDragging = false;
-
-  function updateSlider(x) {
-    const rect   = baSlider.getBoundingClientRect();
-    const posX   = Math.max(0, Math.min(x - rect.left, rect.width));
-    const pct    = (posX / rect.width) * 100;
-    baAfter.style.width  = pct + '%';
-    baHandle.style.left  = pct + '%';
-  }
-
-  baSlider.addEventListener('mousedown',  (e) => { isDragging = true; updateSlider(e.clientX); });
-  window.addEventListener('mousemove',    (e) => { if (isDragging) updateSlider(e.clientX); });
-  window.addEventListener('mouseup',      ()  => { isDragging = false; });
-
-  baSlider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
-  window.addEventListener('touchmove',    (e) => { if (isDragging) updateSlider(e.touches[0].clientX); },    { passive: true });
-  window.addEventListener('touchend',     ()  => { isDragging = false; });
-}
-
 // ===== 예약 폼 제출 (EmailJS) =====
 const bookingForm  = document.getElementById('bookingForm');
 const submitBtn    = document.getElementById('submitBtn');
@@ -320,3 +295,77 @@ function showVideo() {
     }, 100);
   }, 750);
 }
+
+// ===== 고객 후기 슬라이더 =====
+(function () {
+  const track    = document.getElementById('reviewTrack');
+  const dotsWrap = document.getElementById('reviewDots');
+  const prevBtn  = document.getElementById('revPrev');
+  const nextBtn  = document.getElementById('revNext');
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.review-card');
+  let current = 0;
+  let autoTimer;
+
+  function getPerPage() {
+    if (window.innerWidth >= 1024) return 3;
+    if (window.innerWidth >= 640)  return 2;
+    return 1;
+  }
+
+  function maxIdx() {
+    return Math.max(0, cards.length - getPerPage());
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i <= maxIdx(); i++) {
+      const d = document.createElement('button');
+      d.className = 'review-dot' + (i === current ? ' active' : '');
+      d.addEventListener('click', () => slide(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function getStep() {
+    if (!cards.length) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap) || 24;
+    return cards[0].getBoundingClientRect().width + gap;
+  }
+
+  function slide(n) {
+    current = Math.max(0, Math.min(n, maxIdx()));
+    track.style.transform = `translateX(-${current * getStep()}px)`;
+    dotsWrap.querySelectorAll('.review-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(() => slide(current >= maxIdx() ? 0 : current + 1), 4000);
+  }
+
+  function stopAuto() { clearInterval(autoTimer); }
+
+  buildDots();
+  startAuto();
+
+  prevBtn && prevBtn.addEventListener('click', () => { stopAuto(); slide(current - 1); startAuto(); });
+  nextBtn && nextBtn.addEventListener('click', () => { stopAuto(); slide(current + 1); startAuto(); });
+
+  track.parentElement.addEventListener('mouseenter', stopAuto);
+  track.parentElement.addEventListener('mouseleave', startAuto);
+
+  let touchX = 0;
+  track.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   (e) => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 40) return;
+    stopAuto();
+    slide(diff > 0 ? current + 1 : current - 1);
+    startAuto();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => { buildDots(); slide(Math.min(current, maxIdx())); });
+})();
