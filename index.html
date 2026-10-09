@@ -35,7 +35,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
   <!-- AOS Scroll Animation -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"
@@ -51,6 +51,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ===== PAGE ENTRANCE CURTAIN ===== -->
+  <div class="hero-curtain" id="heroCurtain" aria-hidden="true">
+    <div class="curtain-strip"></div>
+    <div class="curtain-strip"></div>
+    <div class="curtain-strip"></div>
+    <div class="curtain-strip"></div>
+    <div class="curtain-strip"></div>
+  </div>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="cursor-outer" id="cursorOuter"></div>
+  <div class="cursor-dot"   id="cursorDot"></div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav id="navbar">
@@ -100,7 +113,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <p class="hero-label" data-aos="fade-up" data-aos-delay="100">SMP · SCALP MICROPIGMENTATION</p>
-      <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" id="heroTitle">
+      <h1 class="hero-title hero-serif" data-aos="fade-up" data-aos-delay="200" id="heroTitle">
         두피문신의<br><span class="accent">새로운 기준</span>
       </h1>
       <p class="hero-desc" data-aos="fade-up" data-aos-delay="350" id="heroDesc"
@@ -155,7 +168,7 @@
       <div class="about-grid">
         <div class="about-image-wrap" data-aos="fade-right">
           <!-- 선아실장 사진 자리 -->
-          <div class="about-img"></div>
+          <div class="about-img" data-parallax="0.12"></div>
           <div class="about-badge">
             <span>SMP</span>
             <span>SPECIALIST</span>
@@ -202,6 +215,7 @@
   <section id="services">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">SERVICES</span>
         <p class="section-label">SERVICES</p>
         <h2 class="section-title" data-ko="시술 안내" data-en="Our Services">시술 안내</h2>
         <p class="section-desc" data-ko="고객의 두피 상태와 목적에 따라 최적의 시술을 제안합니다" data-en="We recommend the best treatment based on your scalp condition and goals">고객의 두피 상태와 목적에 따라 최적의 시술을 제안합니다</p>
@@ -252,10 +266,29 @@
     </div>
   </section>
 
+  <!-- ===== MARQUEE TICKER ===== -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>✦ 무통증 시술</span><span class="m-sep">·</span>
+      <span>한올한올 자연스럽게</span><span class="m-sep">·</span>
+      <span>MSDS 인증 색소</span><span class="m-sep">·</span>
+      <span>500+ 시술 경력</span><span class="m-sep">·</span>
+      <span>3년 추적관리</span><span class="m-sep">·</span>
+      <span>이마골격 분석 설계</span><span class="m-sep">·</span>
+      <span>✦ 무통증 시술</span><span class="m-sep">·</span>
+      <span>한올한올 자연스럽게</span><span class="m-sep">·</span>
+      <span>MSDS 인증 색소</span><span class="m-sep">·</span>
+      <span>500+ 시술 경력</span><span class="m-sep">·</span>
+      <span>3년 추적관리</span><span class="m-sep">·</span>
+      <span>이마골격 분석 설계</span><span class="m-sep">·</span>
+    </div>
+  </div>
+
   <!-- ===== WHY TALMOSSAM ===== -->
   <section id="why">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">WHY</span>
         <p class="section-label">WHY TALMOSSAM</p>
         <h2 class="section-title" data-ko="탈모썜만의 차이" data-en="Why Choose Us">탈모썜만의 차이</h2>
         <p class="section-desc" data-ko="처음 받는 분도 안심할 수 있도록 4가지 원칙을 지킵니다" data-en="4 principles so even first-timers feel confident">처음 받는 분도 안심할 수 있도록 4가지 원칙을 지킵니다</p>
@@ -289,6 +322,7 @@
   <section id="portfolio">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">PORTFOLIO</span>
         <p class="section-label">PORTFOLIO</p>
         <h2 class="section-title" data-ko="시술 결과" data-en="Our Work">시술 결과</h2>
         <p class="section-desc" data-ko="실제 고객의 전·후 사진입니다" data-en="Real before & after results from our clients">실제 고객의 전·후 사진입니다</p>
@@ -317,38 +351,44 @@
       </div>
 
       <!-- 갤러리 그리드 -->
-      <div class="portfolio-grid" data-aos="fade-up" data-aos-delay="150">
-        <div class="portfolio-item">
+      <div class="portfolio-filter" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">전체</button>
+        <button class="filter-btn" data-filter="hairline">헤어라인 교정</button>
+        <button class="filter-btn" data-filter="fullscalp">전체 두피 SMP</button>
+        <button class="filter-btn" data-filter="scar">흉터·밀도</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item reveal-up" data-category="fullscalp">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>다양한 시술 결과 모음</span>
           </div>
         </div>
-        <div class="portfolio-item">
+        <div class="portfolio-item reveal-up" data-category="hairline">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>자연스러운 헤어라인</span>
           </div>
         </div>
-        <div class="portfolio-item">
+        <div class="portfolio-item reveal-up" data-category="hairline">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>시술 전·후 비교</span>
           </div>
         </div>
-        <div class="portfolio-item">
+        <div class="portfolio-item reveal-up" data-category="fullscalp">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>헤어라인 정밀 표현</span>
           </div>
         </div>
-        <div class="portfolio-item">
+        <div class="portfolio-item reveal-up" data-category="fullscalp">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>한올한올 1:1 니들 시술</span>
           </div>
         </div>
-        <div class="portfolio-item">
+        <div class="portfolio-item reveal-up" data-category="scar">
           <div class="port-img"></div>
           <div class="portfolio-overlay">
             <span>3년 후에도 자연스럽게</span>
@@ -372,6 +412,7 @@
   <section id="reviews">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">REVIEWS</span>
         <p class="section-label">REVIEWS</p>
         <h2 class="section-title" data-ko="고객 후기" data-en="Client Reviews">고객 후기</h2>
         <p class="section-desc" data-ko="실제 시술을 받으신 분들의 생생한 후기입니다" data-en="Real reviews from our valued clients">실제 시술을 받으신 분들의 생생한 후기입니다</p>
@@ -445,6 +486,7 @@
   <section id="pricing">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">PRICING</span>
         <p class="section-label">PRICING</p>
         <h2 class="section-title" data-ko="가격 안내" data-en="Pricing Guide">가격 안내</h2>
         <p class="section-desc" data-ko="모든 가격은 상담 후 두피 상태에 따라 조정될 수 있습니다" data-en="All prices may vary based on scalp condition after a free consultation">모든 가격은 상담 후 두피 상태에 따라 조정될 수 있습니다</p>
@@ -510,6 +552,7 @@
   <section id="booking">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
+        <span class="section-watermark" aria-hidden="true">BOOK</span>
         <p class="section-label">RESERVATION</p>
         <h2 class="section-title" data-ko="예약 & 상담 신청" data-en="Book a Consultation">예약 & 상담 신청</h2>
         <p class="section-desc" data-ko="아래 양식을 작성하시면 빠른 시간 내에 연락드리겠습니다" data-en="Fill in the form below and we'll get back to you shortly">아래 양식을 작성하시면 빠른 시간 내에 연락드리겠습니다</p>
