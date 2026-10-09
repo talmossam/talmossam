@@ -566,10 +566,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: var(--dark2);
 }
 
-/* SMP 관련 시술 이미지 */
+/* 선아실장 프로필 사진 */
 .about-img {
-  background:
-    url('https://images.pexels.com/photos/19257525/pexels-photo-19257525.jpeg?auto=compress&cs=tinysrgb&w=800&q=80') center/cover no-repeat;
+  background: url('images/profile.png') center top/cover no-repeat;
 }
 
 .about-badge {
@@ -750,7 +749,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 
 .ba-img-after {
-  background-image: url('images/smp-after.png');
+  background-image: url('images/smp-after.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -819,6 +818,9 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 }
 .portfolio-item:nth-child(6) .port-img {
   background: url('images/longevity.jpg') right center/cover no-repeat;
+}
+.portfolio-item:nth-child(7) .port-img {
+  background: url('images/portfolio-33.jpg') center/cover no-repeat;
 }
 
 .portfolio-overlay {
