@@ -746,14 +746,14 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .ba-img-before {
   background-image: url('images/before-after-2.jpg');
   background-size: 200% 100%;
-  background-position: left center;
-  filter: brightness(0.88);
+  background-position: 0% center;
+  filter: brightness(0.9);
 }
 
 .ba-img-after {
   background-image: url('images/before-after-2.jpg');
   background-size: 200% 100%;
-  background-position: right center;
+  background-position: 100% center;
 }
 
 .ba-side-tag {
