@@ -505,12 +505,13 @@ function showVideo() {
   if (!slider || !after || !divider) return;
 
   let dragging = false;
-  let hinted = false;
+  let hinted   = false;
 
+  // 핸들+클립 동시 이동
   function setPos(pct) {
-    const p = Math.max(5, Math.min(95, pct));
+    const p = Math.max(0, Math.min(100, pct));
     after.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
-    divider.style.left   = p + '%';
+    divider.style.left   = Math.max(3, p) + '%';
   }
 
   function setPosFromClient(clientX) {
@@ -518,34 +519,38 @@ function showVideo() {
     setPos(((clientX - r.left) / r.width) * 100);
   }
 
-  // 초기 위치: 핸들 왼쪽 (8%)
-  setPos(8);
+  // 초기: 시술 전 사진만 보임, 핸들 왼쪽 끝에 대기
+  after.style.clipPath = 'inset(0 100% 0 0)';
+  divider.style.left   = '5%';
 
-  // 뷰포트 진입 시 힌트 — 오른쪽으로 살짝 이동 후 복귀
+  // 뷰 진입 시 힌트 — 오른쪽으로 열렸다가 복귀
   const hintObs = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !hinted) {
       hinted = true;
       hintObs.disconnect();
       setTimeout(() => {
-        let p = 8;
+        let p = 5;
         const go = setInterval(() => {
-          p += 1.2;
+          p += 1.5;
           setPos(p);
-          if (p >= 38) {
+          if (p >= 48) {
             clearInterval(go);
             setTimeout(() => {
-              let q = 38;
               const back = setInterval(() => {
-                q -= 1.2;
-                setPos(q);
-                if (q <= 8) { clearInterval(back); setPos(8); }
-              }, 14);
-            }, 350);
+                p -= 1.5;
+                setPos(p);
+                if (p <= 5) {
+                  clearInterval(back);
+                  after.style.clipPath = 'inset(0 100% 0 0)';
+                  divider.style.left   = '5%';
+                }
+              }, 12);
+            }, 500);
           }
-        }, 14);
-      }, 600);
+        }, 12);
+      }, 700);
     }
-  }, { threshold: 0.5 });
+  }, { threshold: 0.6 });
   hintObs.observe(slider);
 
   divider.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });

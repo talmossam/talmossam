@@ -1933,13 +1933,13 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background-size: cover;
   background-position: center;
 }
-.ba-after { clip-path: inset(0 92% 0 0); }
+.ba-after { clip-path: inset(0 100% 0 0); }
 .ba-tag-left  { position: absolute; bottom: 14px; left: 16px; }
 .ba-tag-right { position: absolute; bottom: 14px; right: 16px; }
 .ba-divider {
   position: absolute;
   top: 0; bottom: 0;
-  left: 8%;
+  left: 5%;
   width: 44px;
   transform: translateX(-50%);
   display: flex;
