@@ -507,10 +507,10 @@ function showVideo() {
   let dragging = false;
   let hinted   = false;
 
-  // 핸들+클립 동시 이동
+  // 핸들+클립 동시 이동 (after는 오른쪽부터 열림)
   function setPos(pct) {
     const p = Math.max(0, Math.min(100, pct));
-    after.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
+    after.style.clipPath = `inset(0 0 0 ${100 - p}%)`;
     divider.style.left   = Math.max(3, p) + '%';
   }
 
@@ -520,7 +520,7 @@ function showVideo() {
   }
 
   // 초기: 시술 전 사진만 보임, 핸들 왼쪽 끝에 대기
-  after.style.clipPath = 'inset(0 100% 0 0)';
+  after.style.clipPath = 'inset(0 0 0 100%)';
   divider.style.left   = '5%';
 
   // 뷰 진입 시 힌트 — 오른쪽으로 열렸다가 복귀
@@ -541,7 +541,7 @@ function showVideo() {
                 setPos(p);
                 if (p <= 5) {
                   clearInterval(back);
-                  after.style.clipPath = 'inset(0 100% 0 0)';
+                  after.style.clipPath = 'inset(0 0 0 100%)';
                   divider.style.left   = '5%';
                 }
               }, 12);
