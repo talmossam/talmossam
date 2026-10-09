@@ -1761,15 +1761,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 /* ===== HERO SERIF TITLE ===== */
 .hero-serif {
-  font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+  font-family: 'Cormorant Garamond', 'Noto Sans KR', serif;
   font-weight: 700;
-  font-size: clamp(4rem, 9.5vw, 8rem);
+  font-size: clamp(3.6rem, 8.5vw, 7rem);
   line-height: 1.1;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 @media (max-width: 768px) {
-  .hero-serif { font-size: clamp(3rem, 13vw, 5.5rem); }
+  .hero-serif { font-size: clamp(2.8rem, 11vw, 4.8rem); }
 }
 
 /* ===== MARQUEE TICKER ===== */
