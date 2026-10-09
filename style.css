@@ -1334,6 +1334,11 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   letter-spacing: 0.5px;
 }
 
+/* ===== SWIPE HINT ===== */
+.swipe-hint {
+  display: none;
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .about-grid { gap: 48px; }
@@ -1374,39 +1379,91 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
     text-align: center;
   }
 
+  /* 섹션 패딩 축소 */
+  #about, #services, #portfolio, #pricing, #booking { padding: 56px 0; }
+  .section-header { margin-bottom: 32px; }
+
+  /* 스와이프 힌트 모바일에서만 표시 */
+  .swipe-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
   .numbers-grid { grid-template-columns: repeat(2, 1fr); }
   .number-item:nth-child(2) { border-right: none; }
   .number-item { border-bottom: 1px solid var(--gray); }
   .number-item:nth-child(3),
   .number-item:nth-child(4) { border-bottom: none; }
 
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .about-img { height: 360px; }
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-img { height: 260px; }
   .about-badge { right: 0; bottom: -16px; }
 
-  .services-grid { grid-template-columns: 1fr; }
+  /* Services — 가로 스크롤 */
+  .services-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .services-grid::-webkit-scrollbar { display: none; }
+  .service-card {
+    flex: 0 0 78vw;
+    max-width: 300px;
+    scroll-snap-align: start;
+  }
+  .service-img-wrap { height: 200px; }
 
-  .ba-slider { height: 320px; }
-
+  /* Portfolio */
+  .ba-slider { height: 240px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-item { aspect-ratio: 4/3; }
 
-  .pricing-grid { grid-template-columns: 1fr; }
+  /* Pricing — 가로 스크롤 */
+  .pricing-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 0 8px;
+    scrollbar-width: none;
+    margin-bottom: 24px;
+  }
+  .pricing-grid::-webkit-scrollbar { display: none; }
+  .pricing-card {
+    flex: 0 0 80vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+  }
 
+  /* Booking */
   .booking-grid { grid-template-columns: 1fr; }
-
-  .booking-form { padding: 32px 24px; }
+  .booking-form { padding: 28px 20px; }
   .form-row { grid-template-columns: 1fr; }
 
+  /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 
+  /* Hero */
   .hero-buttons { flex-direction: column; align-items: center; }
   .hero-buttons .btn { width: 100%; max-width: 280px; }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  #about, #services, #portfolio, #pricing, #booking { padding: 80px 0; }
-  .section-header { margin-bottom: 40px; }
-  .portfolio-grid { grid-template-columns: 1fr; }
+  #about, #services, #portfolio, #pricing, #booking { padding: 44px 0; }
+  .section-header { margin-bottom: 24px; }
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card { flex: 0 0 85vw; }
+  .pricing-card { flex: 0 0 85vw; }
 }
