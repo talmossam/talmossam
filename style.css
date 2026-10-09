@@ -749,15 +749,15 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   object-fit: cover;
 }
 
-/* SMP 시술 전 이미지 */
+/* 실제 시술 전/후 (복합 이미지를 CSS로 좌/우 분리) */
 .ba-before .ba-img {
-  background: url('https://images.pexels.com/photos/20104495/pexels-photo-20104495.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80') center/cover no-repeat;
-  filter: grayscale(60%) brightness(0.7);
+  background: url('images/before-after-2.jpg') left center / 200% auto no-repeat;
+  background-color: var(--dark3);
 }
 
-/* SMP 시술 후 이미지 */
 .ba-after .ba-img {
-  background: url('https://images.pexels.com/photos/31567765/pexels-photo-31567765.jpeg?auto=compress&cs=tinysrgb&w=1200&q=80') center/cover no-repeat;
+  background: url('images/before-after-2.jpg') right center / 200% auto no-repeat;
+  background-color: var(--dark3);
 }
 
 .ba-label {
@@ -852,24 +852,24 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   transition: transform 0.6s ease;
 }
 
-/* 포트폴리오 이미지 */
+/* 실제 시술 사진 */
 .portfolio-item:nth-child(1) .port-img {
-  background: url('https://images.pexels.com/photos/23532307/pexels-photo-23532307.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/portfolio-grid.jpg') center/cover no-repeat;
 }
 .portfolio-item:nth-child(2) .port-img {
-  background: url('https://images.pexels.com/photos/12791665/pexels-photo-12791665.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/hairline-closeup.jpg') center top/cover no-repeat;
 }
 .portfolio-item:nth-child(3) .port-img {
-  background: url('https://images.pexels.com/photos/5808330/pexels-photo-5808330.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/before-after-2.jpg') left center/cover no-repeat;
 }
 .portfolio-item:nth-child(4) .port-img {
-  background: url('https://images.pexels.com/photos/5059286/pexels-photo-5059286.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/collage.jpg') center/cover no-repeat;
 }
 .portfolio-item:nth-child(5) .port-img {
-  background: url('https://images.pexels.com/photos/19307685/pexels-photo-19307685.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/needle-closeup.jpg') center/cover no-repeat;
 }
 .portfolio-item:nth-child(6) .port-img {
-  background: url('https://images.pexels.com/photos/20104495/pexels-photo-20104495.jpeg?auto=compress&cs=tinysrgb&w=600&q=80') center/cover no-repeat;
+  background: url('images/longevity.jpg') center/cover no-repeat;
 }
 
 .portfolio-overlay {
@@ -1339,6 +1339,107 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   display: none;
 }
 
+/* ===== HERO TRUST BADGES ===== */
+.hero-trust {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hero-trust span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== WHY TALMOSSAM ===== */
+#why {
+  padding: 120px 0;
+  background: var(--dark2);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.why-card {
+  background: var(--dark3);
+  padding: 44px 32px;
+  border-top: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.why-card:hover {
+  border-top-color: var(--accent);
+  background: var(--dark);
+}
+
+.why-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: rgba(201,169,110,0.12);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.why-card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.why-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ===== LONGEVITY SHOWCASE ===== */
+.longevity-wrap {
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.longevity-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--black);
+  padding: 5px 18px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.longevity-img {
+  width: 100%;
+  max-width: 860px;
+  border-radius: var(--radius-lg);
+  display: inline-block;
+  border: 1px solid var(--gray);
+}
+
+.longevity-caption {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+.longevity-caption strong {
+  color: var(--accent);
+}
+
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .about-grid { gap: 48px; }
@@ -1380,8 +1481,16 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   }
 
   /* 섹션 패딩 축소 */
-  #about, #services, #portfolio, #pricing, #booking { padding: 56px 0; }
+  #about, #services, #why, #portfolio, #pricing, #booking { padding: 56px 0; }
   .section-header { margin-bottom: 32px; }
+
+  /* Why 섹션 모바일 */
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-card { padding: 28px 20px; }
+  .why-num { font-size: 2rem; }
+
+  /* Longevity */
+  .longevity-wrap { margin-bottom: 36px; }
 
   /* 스와이프 힌트 모바일에서만 표시 */
   .swipe-hint {
@@ -1461,9 +1570,12 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-  #about, #services, #portfolio, #pricing, #booking { padding: 44px 0; }
+  #about, #services, #why, #portfolio, #pricing, #booking { padding: 44px 0; }
   .section-header { margin-bottom: 24px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { flex: 0 0 85vw; }
   .pricing-card { flex: 0 0 85vw; }
+  .hero-trust { gap: 10px; }
+  .hero-trust span { font-size: 0.72rem; }
+  .why-grid { grid-template-columns: 1fr; }
 }
