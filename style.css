@@ -1910,3 +1910,207 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   width: 0%;
   transition: width 0.1s linear;
 }
+
+/* =====================================================
+   10가지 모션+디자인 업그레이드
+   ===================================================== */
+
+/* ===== 1. ABOUT TEXT REVEAL ===== */
+.text-reveal-line {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.text-reveal-line.revealed { opacity: 1; transform: translateY(0); }
+
+/* ===== 2. SLOT COUNTER ===== */
+.number-item { overflow: hidden; }
+@keyframes slotIn {
+  0%   { transform: translateY(80%); opacity: 0; }
+  60%  { transform: translateY(-6%); opacity: 1; }
+  80%  { transform: translateY(2%); }
+  100% { transform: translateY(0); }
+}
+.number-item.slot-fire .number {
+  animation: slotIn 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ===== 3. HERO MOUSE PARALLAX ===== */
+.hero-video-wrap { transition: transform 1s cubic-bezier(0.25,0.46,0.45,0.94); }
+
+/* ===== 4. NAV UNDERLINE SLIDE ===== */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.32s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ===== 5. BA DRAG SLIDER ===== */
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  height: 380px;
+  cursor: col-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.ba-before, .ba-after {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.ba-before .ba-img-box,
+.ba-after .ba-img-box {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.ba-after { clip-path: inset(0 50% 0 0); }
+.ba-tag-left  { position: absolute; bottom: 14px; left: 16px; }
+.ba-tag-right { position: absolute; bottom: 14px; right: 16px; }
+.ba-divider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 44px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: col-resize;
+}
+.ba-divider-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(255,255,255,0.9);
+  transform: translateX(-50%);
+}
+.ba-divider-btn {
+  position: relative;
+  width: 42px; height: 42px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  cursor: col-resize;
+  color: var(--black);
+  z-index: 1;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+.ba-divider-btn:hover { transform: scale(1.1); }
+@media (max-width: 768px) { .ba-slider { height: 260px; } }
+
+/* ===== 6. SERVICE CARD HOVER ===== */
+.service-img-wrap { overflow: hidden; }
+.service-img {
+  transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.service-card:hover .service-img { transform: scale(1.07); }
+.service-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+}
+
+/* ===== 7. PRICING CARD REVEAL + BADGE PULSE ===== */
+.pricing-card {
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.pricing-card.price-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.pricing-grid .pricing-card:nth-child(2) { transition-delay: 0.13s; }
+.pricing-grid .pricing-card:nth-child(3) { transition-delay: 0.26s; }
+
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0.5); }
+  60%       { box-shadow: 0 0 0 10px rgba(201,169,110,0); }
+}
+.pricing-badge { animation: badgePulse 2.5s ease infinite; }
+
+/* ===== 8. FORM FOCUS UNDERLINE ===== */
+.form-group { position: relative; }
+.form-group::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+  border-radius: 1px;
+}
+.form-group:focus-within::before { width: 100%; }
+
+/* ===== 9. DOT NAVIGATION ===== */
+.dot-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.dot-nav-item {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(201,169,110,0.25);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.dot-nav-item:hover { background: rgba(201,169,110,0.6); }
+.dot-nav-item.active {
+  background: var(--accent);
+  transform: scale(1.7);
+}
+@media (max-width: 900px) { .dot-nav { display: none; } }
+
+/* ===== 10. FOOTER SHIMMER ===== */
+@keyframes shimmerSweep {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.footer-logo #footerLogoText {
+  display: inline-block;
+  background: linear-gradient(90deg,
+    var(--accent) 0%,
+    var(--accent-light) 40%,
+    var(--accent) 55%,
+    var(--accent-light) 80%,
+    var(--accent) 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-position: 0% center;
+  transition: background-position 0.4s ease;
+}
+.footer-logo:hover #footerLogoText {
+  animation: shimmerSweep 1.4s ease forwards;
+}

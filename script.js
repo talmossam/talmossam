@@ -238,6 +238,8 @@ const numberData = [
 const countObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
+    const numItem = entry.target.closest('.number-item');
+    if (numItem) numItem.classList.add('slot-fire');
     const idx = Array.from(numberEls).indexOf(entry.target);
     if (idx < 0) return;
     const { end, suffix } = numberData[idx];
@@ -499,4 +501,95 @@ function showVideo() {
   }, { passive: true });
 
   window.addEventListener('resize', () => { buildDots(); slide(Math.min(current, maxIdx())); stopAuto(); startAuto(); });
+})();
+
+// ===== About 텍스트 라인별 등장 =====
+(function () {
+  const lines = document.querySelectorAll('.text-reveal-line');
+  if (!lines.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const idx = Array.from(lines).indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('revealed'), idx * 70);
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+  lines.forEach(el => obs.observe(el));
+})();
+
+// ===== 히어로 마우스 패럴랙스 =====
+(function () {
+  const hero  = document.getElementById('hero');
+  const vWrap = document.querySelector('.hero-video-wrap');
+  const hCont = document.querySelector('.hero-content');
+  if (!hero || !vWrap) return;
+  hero.addEventListener('mousemove', (e) => {
+    const r  = hero.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+    const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+    vWrap.style.transform = `translate(${dx * -7}px, ${dy * -4}px) scale(1.03)`;
+    if (hCont) hCont.style.transform = `translate(${dx * 3}px, ${dy * 2}px)`;
+  });
+  hero.addEventListener('mouseleave', () => {
+    vWrap.style.transform = '';
+    if (hCont) hCont.style.transform = '';
+  });
+})();
+
+// ===== BA 드래그 슬라이더 =====
+(function () {
+  const slider  = document.getElementById('baSlider');
+  const after   = document.getElementById('baAfter');
+  const divider = document.getElementById('baDivider');
+  if (!slider || !after || !divider) return;
+
+  let dragging = false;
+
+  function setPos(clientX) {
+    const r = slider.getBoundingClientRect();
+    const pct = Math.max(5, Math.min(95, ((clientX - r.left) / r.width) * 100));
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    divider.style.left   = pct + '%';
+  }
+
+  divider.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });
+  slider.addEventListener( 'mousemove',  (e) => { if (dragging) setPos(e.clientX); });
+  document.addEventListener('mouseup',   ()  => { dragging = false; });
+
+  divider.addEventListener('touchstart', ()  => { dragging = true; }, { passive: true });
+  slider.addEventListener( 'touchmove',  (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  document.addEventListener('touchend',  ()  => { dragging = false; });
+})();
+
+// ===== 가격 카드 등장 =====
+(function () {
+  const cards = document.querySelectorAll('.pricing-card');
+  if (!cards.length) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('price-visible');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(c => obs.observe(c));
+})();
+
+// ===== 도트 네비게이션 =====
+(function () {
+  const dots = document.querySelectorAll('.dot-nav-item');
+  if (!dots.length) return;
+  const allSections = document.querySelectorAll('section[id]');
+
+  function updateDots() {
+    let current = 'hero';
+    allSections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - window.innerHeight * 0.4) current = sec.id;
+    });
+    dots.forEach(d => d.classList.toggle('active', d.dataset.dot === current));
+  }
+
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
 })();
