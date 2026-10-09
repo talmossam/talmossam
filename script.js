@@ -331,46 +331,6 @@ function showVideo() {
   }, { passive: true });
 })();
 
-// ===== 커스텀 커서 (pointer 디바이스만) =====
-(function () {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-
-  const outer = document.getElementById('cursorOuter');
-  const dot   = document.getElementById('cursorDot');
-  if (!outer || !dot) return;
-
-  let mx = -200, my = -200;
-  let ox = -200, oy = -200;
-
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
-    outer.classList.add('visible');
-    dot.classList.add('visible');
-  });
-
-  document.addEventListener('mouseleave', () => {
-    outer.classList.remove('visible');
-    dot.classList.remove('visible');
-  });
-
-  // 링 따라오기 — 약간 지연
-  function lerp(a, b, t) { return a + (b - a) * t; }
-  (function animCursor() {
-    ox = lerp(ox, mx, 0.12);
-    oy = lerp(oy, my, 0.12);
-    outer.style.left = ox + 'px';
-    outer.style.top  = oy + 'px';
-    requestAnimationFrame(animCursor);
-  })();
-
-  // hover 상태
-  document.querySelectorAll('a, button, .filter-btn, .portfolio-item, .service-card, .pricing-card').forEach(el => {
-    el.addEventListener('mouseenter', () => outer.classList.add('hovering'));
-    el.addEventListener('mouseleave', () => outer.classList.remove('hovering'));
-  });
-})();
 
 // ===== 히어로 커튼 제거 =====
 (function () {

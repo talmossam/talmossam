@@ -1689,48 +1689,6 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
    MOTION & PREMIUM UPGRADES
    ===================================================== */
 
-/* ===== CUSTOM CURSOR ===== */
-@media (pointer: fine) {
-  body { cursor: none; }
-  a, button, .filter-btn, .portfolio-item, .service-card { cursor: none; }
-}
-
-.cursor-outer {
-  position: fixed;
-  top: 0; left: 0;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(201, 169, 110, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, opacity 0.3s ease, border-color 0.25s ease;
-  opacity: 0;
-}
-
-.cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 5px; height: 5px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-.cursor-outer.visible,
-.cursor-dot.visible {
-  opacity: 1;
-}
-
-.cursor-outer.hovering {
-  width: 56px; height: 56px;
-  border-color: var(--accent);
-  background: rgba(201, 169, 110, 0.06);
-}
 
 /* ===== HERO CURTAIN ===== */
 .hero-curtain {
