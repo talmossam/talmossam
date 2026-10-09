@@ -505,20 +505,55 @@ function showVideo() {
   if (!slider || !after || !divider) return;
 
   let dragging = false;
+  let hinted = false;
 
-  function setPos(clientX) {
-    const r = slider.getBoundingClientRect();
-    const pct = Math.max(5, Math.min(95, ((clientX - r.left) / r.width) * 100));
-    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    divider.style.left   = pct + '%';
+  function setPos(pct) {
+    const p = Math.max(5, Math.min(95, pct));
+    after.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
+    divider.style.left   = p + '%';
   }
 
+  function setPosFromClient(clientX) {
+    const r = slider.getBoundingClientRect();
+    setPos(((clientX - r.left) / r.width) * 100);
+  }
+
+  // 초기 위치: 핸들 왼쪽 (8%)
+  setPos(8);
+
+  // 뷰포트 진입 시 힌트 — 오른쪽으로 살짝 이동 후 복귀
+  const hintObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !hinted) {
+      hinted = true;
+      hintObs.disconnect();
+      setTimeout(() => {
+        let p = 8;
+        const go = setInterval(() => {
+          p += 1.2;
+          setPos(p);
+          if (p >= 38) {
+            clearInterval(go);
+            setTimeout(() => {
+              let q = 38;
+              const back = setInterval(() => {
+                q -= 1.2;
+                setPos(q);
+                if (q <= 8) { clearInterval(back); setPos(8); }
+              }, 14);
+            }, 350);
+          }
+        }, 14);
+      }, 600);
+    }
+  }, { threshold: 0.5 });
+  hintObs.observe(slider);
+
   divider.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });
-  slider.addEventListener( 'mousemove',  (e) => { if (dragging) setPos(e.clientX); });
+  slider.addEventListener( 'mousemove',  (e) => { if (dragging) setPosFromClient(e.clientX); });
   document.addEventListener('mouseup',   ()  => { dragging = false; });
 
   divider.addEventListener('touchstart', ()  => { dragging = true; }, { passive: true });
-  slider.addEventListener( 'touchmove',  (e) => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  slider.addEventListener( 'touchmove',  (e) => { if (dragging) setPosFromClient(e.touches[0].clientX); }, { passive: true });
   document.addEventListener('touchend',  ()  => { dragging = false; });
 })();
 
